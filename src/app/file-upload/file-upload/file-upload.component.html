@@ -1,0 +1,15 @@
+<form [formGroup]="uploadForm">
+    <div [ngClass]="{'invalid':fileToUploadControl.touched && fileToUploadControl.invalid}">
+        <label for="fileUpload">Upload File</label>
+        <input type="file" id="fileUpload" formControlName="fileToUpload" (change)="uploadFile($event)" />
+        <br />
+        <span class="error" *ngIf="fileToUploadControl.errors && !!fileToUploadControl.errors['fileExtension']">
+            Invalid File Extension. Accepted File Extensions-{{acceptedExtensions}}</span>
+        <br />
+        <span class="error" *ngIf="fileToUploadControl.errors && !!fileToUploadControl.errors['fileMaxSize']">
+            File size excceds. Maximum allowed file size is 2MB</span>
+        <br />
+        <span class="error" *ngIf="fileToUploadControl.errors && !!fileToUploadControl.errors['fileMinSize']">
+            Minimum allowed file size is 1MB</span>
+    </div>
+</form>
