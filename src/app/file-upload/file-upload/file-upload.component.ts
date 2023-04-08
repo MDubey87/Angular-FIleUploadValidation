@@ -35,7 +35,9 @@ export class FileUploadComponent {
           FileValidations.fileMinSizeValidator(event.target.files),
         ]);
       this.uploadForm.get('fileToUpload')?.updateValueAndValidity();
-      console.log(this.fileToUploadControl.errors);
+      if (this.uploadForm.valid) {
+        // To Do : Implement your code here
+      }
     }
   }
   get fileToUploadControl(): FormControl {

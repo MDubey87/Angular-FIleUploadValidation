@@ -21,7 +21,7 @@ export class FileValidations {
     };
   }
   public static fileMaxSizeValidator(files: FileList): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
+    return (): ValidationErrors | null => {
       if (files.length > 0) {
         if (Math.round(files[0].size / 1024) > FILE_MAX_SIZE) {
           return {
@@ -38,7 +38,7 @@ export class FileValidations {
     };
   }
   public static fileMinSizeValidator(files: FileList): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
+    return (): ValidationErrors | null => {
       if (files.length > 0) {
         if (Math.round(files[0].size / 1024) < FILE_MIN_SIZE) {
           return {
