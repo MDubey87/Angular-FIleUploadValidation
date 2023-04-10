@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-const FILE_MAX_SIZE = 2000;
-const FILE_MIN_SIZE = 1000;
+const FILE_MAX_SIZE = 2048;
+const FILE_MIN_SIZE = 1024;
 export class FileValidations {
   public static fileExtensionValidator(
     acceptedExtensions: string[]
@@ -26,9 +26,9 @@ export class FileValidations {
         if (Math.round(files[0].size / 1024) > FILE_MAX_SIZE) {
           return {
             fileMaxSize: {
-              requiredSize: `${Math.round(FILE_MAX_SIZE) / 1000}MB`,
+              requiredSize: `${Math.round(FILE_MAX_SIZE) / 1024}MB`,
               actualSize: `${Math.round(
-                Math.round(files[0].size / 1024) / 1000
+                Math.round(files[0].size / 1024) / 1024
               )}MB`,
             },
           };
@@ -43,9 +43,9 @@ export class FileValidations {
         if (Math.round(files[0].size / 1024) < FILE_MIN_SIZE) {
           return {
             fileMinSize: {
-              requiredSize: `${Math.round(FILE_MIN_SIZE) / 1000}MB`,
+              requiredSize: `${Math.round(FILE_MIN_SIZE) / 1024}MB`,
               actualSize: `${Math.round(
-                Math.round(files[0].size / 1024) / 1000
+                Math.round(files[0].size / 1024) / 1024
               )}MB`,
             },
           };
