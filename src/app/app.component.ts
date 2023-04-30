@@ -1,11 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
